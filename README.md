@@ -10,7 +10,7 @@ En primer lugar, se carga el tanque siempre que la capacidad leida sea menor a l
 
 ## Diagrama 
 
-![./imagenes/DiagramaCTanque.png]
+![./imagenes/DiagramaCTanque.png](https://github.com/Matias-Netto/Trabajo-Practico---Maquina-de-estado---/blob/master/Imagenes/DiagramaCTanque.jpg)
 
 - C: Capacidad leida
 - Cset: Capacidad seteada 
