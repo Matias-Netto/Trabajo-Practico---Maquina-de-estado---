@@ -14,5 +14,37 @@ En primer lugar, se carga el tanque siempre que la capacidad leida sea menor a l
 
 - C: Capacidad leida
 - Cset: Capacidad seteada 
-- DC: Delta de la capacidad  
+- DC: Delta de la capacidad
+
+## Código
+
+
+	#include <stdio.h>
+    #include <stdlib.h>
+
+    main()
+    {
+	   float Cset;
+	   float C;
+	   float DC;
+	
+	   printf("Ingresar valor de Capacidad deseada:\t");
+	   scanf("%f",&Cset);
+	   printf("Ingresar valor de Delta Capacidad deseada:\t");
+	   scanf("%f",&DC);
+	   printf("Capacidad actual recibida:\t");
+	   scanf("%f",&C);	
+	   while (C<Cset)
+	      {
+		     C=C+1;
+	      }
+	   while (C>Cset)
+	      {
+		      C=C-1;
+	      }
+    }
+.
+
+
+
 
