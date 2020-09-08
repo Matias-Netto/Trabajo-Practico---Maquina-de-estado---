@@ -18,32 +18,78 @@ En primer lugar, se carga el tanque siempre que la capacidad leida sea menor a l
 
 ## Código
 
+### archivo de cabecera libreria.h
 
-	#include <stdio.h>
-    #include <stdlib.h>
+    #include <stdio.h>
 
-    main()
-    {
-	   float Cset;
-	   float C;
-	   float DC;
+
+
+    typedef struct tanque
+
+    { 
 	
-	   printf("Ingresar valor de Capacidad deseada:\t");
-	   scanf("%f",&Cset);
-	   printf("Ingresar valor de Delta Capacidad deseada:\t");
-	   scanf("%f",&DC);
-	   printf("Capacidad actual recibida:\t");
-	   scanf("%f",&C);	
-	   while (C<Cset)
-	      {
-		     C=C+1;
-	      }
-	   while (C>Cset)
-	      {
-		      C=C-1;
-	      }
+	int cap_leida;
+    int cap_set;
+    int delta_c;
+
     }
-.
+
+	estado_t;
+
+    typedef enum
+
+    {
+
+    espera = 0,
+    llenar = 1
+   
+    }
+   
+    estado;
+
+    estado f_inicio(void);
+    estado_t f_espera(estado);
+    estado_t f_llenar(estado);
+
+
+### Archivo main.c
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include "libreria.h"
+
+    int main()
+
+    {
+
+    estado_t config;
+    estado(espera) = espera;
+
+    config = inicio();
+
+    while(1)
+    {
+        switch(estado)
+      {
+        case espera: estado = f_espera(config);
+                    break;
+        case llenar: estado = f_llenar(config);
+                    break;
+      }
+
+    return 0;
+
+    }
+
+
+### Archivo config.conf
+
+    # Capacidad seteada
+    cap_set 75
+    # Delta de capacidad
+    delta_c 5
+
+
 
 
 
