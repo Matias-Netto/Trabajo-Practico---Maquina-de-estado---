@@ -22,34 +22,21 @@ En primer lugar, se carga el tanque siempre que la capacidad leida sea menor a l
 
     #include <stdio.h>
 
-
-
     typedef struct tanque
-
-    { 
-	
-	int cap_leida;
+    
+    int cap_leida;
     int cap_set;
     int delta_c;
+    };
 
-    }
+    typedef enum estado{
+        espera = 0,
+        llenar = 1,
+    ;
 
-	estado_t;
-
-    typedef enum
-
-    {
-
-    espera = 0,
-    llenar = 1
-   
-    }
-   
-    estado;
-
-    estado f_inicio(void);
-    estado_t f_espera(estado);
-    estado_t f_llenar(estado);
+    tanque f_inicio(void)
+    estado f_espera(tanque);
+    estado f_llenar(tanque);
 
 
 ### Archivo main.c
@@ -57,28 +44,23 @@ En primer lugar, se carga el tanque siempre que la capacidad leida sea menor a l
     #include <stdio.h>
     #include <stdlib.h>
     #include "libreria.h"
-
+    
     int main()
-
     {
+        int tanque = (int)config;
+        int estado = (int)estado.espera;
 
-    estado_t config;
-    estado(espera) = espera;
-
-    config = inicio();
-
+    config = inicio(void);
     while(1)
     {
         switch(estado)
       {
-        case espera: estado = f_espera(config);
+        case espera: estado = espera(config);
                     break;
-        case llenar: estado = f_llenar(config);
+        case llenar: estado = llenar(config);
                     break;
       }
-
     return 0;
-
     }
 
 
