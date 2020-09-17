@@ -1,21 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "libreria.h"
 
 int main()
-{
-    int tanque = (int)config;
-    int estado = (int)estado.espera;
 
-    config = inicio(void);
-    while(1)
+{
+    int estado, e;
+    estado = f_switch(e);
+    f_lectura();
+    switch (estado)
     {
-        switch(estado)
-      {
-        case espera: estado = espera(config);
-                    break;
-        case llenar: estado = llenar(config);
-                    break;
-      }
-    return 0;
+        case espera:
+            f_espera();
+            break;
+        case llenar:
+            f_llenar();
+            break;
     }
+     system ("PAUSE");
+    return 0;
+}

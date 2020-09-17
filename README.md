@@ -20,56 +20,85 @@ En primer lugar, se carga el tanque siempre que la capacidad leida sea menor a l
 
 ### archivo de cabecera libreria.h
 
+    #include <stdlib.h>
     #include <stdio.h>
 
-    typedef struct tanque
-    
-    int cap_leida;
-    int cap_set;
-    int delta_c;
+    enum 
+    {
+    espera = 1,
+    llenar = 2
     };
 
-    typedef enum estado{
-        espera = 0,
-        llenar = 1,
-    ;
+    int f_inicio (void)
+    {
+    int cap_set, delta_c;
+    printf("ingrese capacidad maxima:\t");
+    scanf("%d",&cap_set);
+    printf("\nIngrese delta de la capacidad maxima:\t");
+    scanf("%d",&delta_c);
+    return cap_set+delta_c;
+    }
+    
+    int f_lectura (void)
+    {
+        int cap_leida;
+        printf("\nCapacidad leida:\t");
+        scanf("%d",&cap_leida);
+        return cap_leida;
+    }
 
-    tanque f_inicio(void)
-    estado f_espera(tanque);
-    estado f_llenar(tanque);
+    int f_switch (int cap_leida)
+    {
+        int limite, e;
+        limite=f_inicio();
+        if (limite<cap_leida)
+        {
+            e = espera;
+        }
+        else
+        {
+            e = llenar;
+        }
+        return e;
+    }
+
+    void f_espera (void)
+    {
+        printf("Estado de espera\n");
+    }
+
+    void f_llenar (void)
+    {
+        printf("Estado de llenado\n");
+    }
+
 
 
 ### Archivo main.c
 
-    #include <stdio.h>
-    #include <stdlib.h>
-    #include "libreria.h"
-    
-    int main()
-    {
-        int tanque = (int)config;
-        int estado = (int)estado.espera;
 
-    config = inicio(void);
-    while(1)
+    #include "libreria.h"
+    int main()
+
     {
-        switch(estado)
-      {
-        case espera: estado = espera(config);
-                    break;
-        case llenar: estado = llenar(config);
-                    break;
-      }
-    return 0;
+        int estado, e;
+        estado = f_switch(e);
+        f_lectura();
+        switch (estado)
+        {
+            case espera:
+                f_espera();
+                break;
+            case llenar:
+                f_llenar();
+                break;
+        }
+        system ("PAUSE");
+        return 0;
     }
 
 
-### Archivo config.conf
 
-    # Capacidad seteada
-    cap_set 75
-    # Delta de capacidad
-    delta_c 5
 
 
 

@@ -1,17 +1,50 @@
+#include <stdlib.h>
 #include <stdio.h>
 
-typedef struct tanque
+enum
+{
+    espera = 1,
+    llenar = 2
+};
+
+int f_inicio (void)
+{
+    int cap_set, delta_c;
+    printf("ingrese capacidad maxima:\t");
+    scanf("%d",&cap_set);
+    printf("\nIngrese delta de la capacidad maxima:\t");
+    scanf("%d",&delta_c);
+    return cap_set+delta_c;
+}
+int f_lectura (void)
 {
     int cap_leida;
-    int cap_set;
-    int delta_c;
-};
+    printf("\nCapacidad leida:\t");
+    scanf("%d",&cap_leida);
+    return cap_leida;
+}
 
-typedef enum estado{
-    espera = 0,
-    llenar = 1,
-};
+int f_switch (int cap_leida)
+{
+    int limite, e;
+    limite=f_inicio();
+    if (limite<cap_leida)
+    {
+        e = espera;
+    }
+    else
+    {
+        e = llenar;
+    }
+    return e;
+}
 
-tanque f_inicio(void);
-estado f_espera(tanque);
-estado f_llenar(tanque);
+void f_espera (void)
+{
+    printf("Estado de espera\n");
+}
+
+void f_llenar (void)
+{
+    printf("Estado de carga\n");
+}
